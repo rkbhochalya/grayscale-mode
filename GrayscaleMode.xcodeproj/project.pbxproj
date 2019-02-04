@@ -13,6 +13,7 @@
 		54BBA54922073F1A005718DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54BBA54722073F1A005718DE /* Main.storyboard */; };
 		54BBA55522073F1B005718DE /* GrayscaleModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA55422073F1B005718DE /* GrayscaleModeTests.swift */; };
 		54BBA56022073F1B005718DE /* GrayscaleModeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA55F22073F1B005718DE /* GrayscaleModeUITests.swift */; };
+		54BBA5742207ECF3005718DE /* grayscale.c in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA5732207ECF3005718DE /* grayscale.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,9 @@
 		54BBA55B22073F1B005718DE /* GrayscaleModeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrayscaleModeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BBA55F22073F1B005718DE /* GrayscaleModeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleModeUITests.swift; sourceTree = "<group>"; };
 		54BBA56122073F1B005718DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54BBA56F2207EC44005718DE /* GrayscaleMode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GrayscaleMode-Bridging-Header.h"; sourceTree = "<group>"; };
+		54BBA5722207ECF3005718DE /* grayscale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grayscale.h; sourceTree = "<group>"; };
+		54BBA5732207ECF3005718DE /* grayscale.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = grayscale.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,9 @@
 				54BBA54722073F1A005718DE /* Main.storyboard */,
 				54BBA54A22073F1A005718DE /* Info.plist */,
 				54BBA54B22073F1B005718DE /* GrayscaleMode.entitlements */,
+				54BBA56F2207EC44005718DE /* GrayscaleMode-Bridging-Header.h */,
+				54BBA5722207ECF3005718DE /* grayscale.h */,
+				54BBA5732207ECF3005718DE /* grayscale.c */,
 			);
 			path = GrayscaleMode;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 				TargetAttributes = {
 					54BBA53D22073F19005718DE = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					54BBA54F22073F1B005718DE = {
 						CreatedOnToolsVersion = 10.1;
@@ -256,6 +264,7 @@
 			files = (
 				54BBA54422073F19005718DE /* ViewController.swift in Sources */,
 				54BBA54222073F19005718DE /* AppDelegate.swift in Sources */,
+				54BBA5742207ECF3005718DE /* grayscale.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GrayscaleMode/GrayscaleMode.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -432,6 +442,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.rkb.GrayscaleMode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GrayscaleMode/GrayscaleMode-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -440,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GrayscaleMode/GrayscaleMode.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -451,6 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.rkb.GrayscaleMode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GrayscaleMode/GrayscaleMode-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
