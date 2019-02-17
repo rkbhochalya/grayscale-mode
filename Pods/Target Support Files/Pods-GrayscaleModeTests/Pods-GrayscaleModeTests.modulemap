@@ -1,0 +1,6 @@
+framework module Pods_GrayscaleModeTests {
+  umbrella header "Pods-GrayscaleModeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

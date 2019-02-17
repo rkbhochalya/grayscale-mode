@@ -14,14 +14,32 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="GrayscaleMode" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="Toggle Grayscale Mode" id="Zzz-47-AHk">
+                                        <menuItem title="Enable Grayscale Mode" id="Zzz-47-AHk">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="toggleGrayscaleMode:" target="Voe-Tx-rLC" id="bXf-FM-SiM"/>
+                                                <action selector="toggleGrayscaleMode:" target="Voe-Tx-rLC" id="7Zt-sF-gD6"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Launch at startup" id="QeW-s5-gce">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="toggleLaunchAtStartup:" target="Voe-Tx-rLC" id="Kwo-fz-Tu2"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Enable at launch" id="5Qm-2a-8UQ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="toggleEnableAtLaunch:" target="Voe-Tx-rLC" id="jcg-mA-nV6"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Enable on left-click" id="RNe-bO-WKw">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="toggleEnableOnLeftClick:" target="Voe-Tx-rLC" id="2lm-0T-MHJ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="zkv-q0-6i1"/>
                                         <menuItem title="Quit" keyEquivalent="q" id="4sb-4s-VLi" userLabel="Quit">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
@@ -38,6 +56,10 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="GrayscaleMode" customModuleProvider="target">
                     <connections>
+                        <outlet property="menuItemEnableAtLaunch" destination="5Qm-2a-8UQ" id="e2P-QG-QM4"/>
+                        <outlet property="menuItemEnableGrayscaleMode" destination="Zzz-47-AHk" id="UQd-75-vfh"/>
+                        <outlet property="menuItemEnableOnLeftClick" destination="RNe-bO-WKw" id="CNw-8a-XpV"/>
+                        <outlet property="menuItemLaunchAtStartup" destination="QeW-s5-gce" id="g6o-SW-m59"/>
                         <outlet property="statusMenu" destination="uQy-DD-JDr" id="w3a-zm-ChM"/>
                     </connections>
                 </customObject>

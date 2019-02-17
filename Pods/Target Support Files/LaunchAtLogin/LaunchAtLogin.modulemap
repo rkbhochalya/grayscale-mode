@@ -1,0 +1,6 @@
+framework module LaunchAtLogin {
+  umbrella header "LaunchAtLogin-umbrella.h"
+
+  export *
+  module * { export * }
+}

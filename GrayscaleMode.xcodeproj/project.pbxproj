@@ -14,6 +14,9 @@
 		54BBA55522073F1B005718DE /* GrayscaleModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA55422073F1B005718DE /* GrayscaleModeTests.swift */; };
 		54BBA56022073F1B005718DE /* GrayscaleModeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA55F22073F1B005718DE /* GrayscaleModeUITests.swift */; };
 		54BBA5742207ECF3005718DE /* grayscale.c in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA5732207ECF3005718DE /* grayscale.c */; };
+		791C386B5E0853D4F186F60E /* Pods_GrayscaleModeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45482BEF1DD7948EBF170F52 /* Pods_GrayscaleModeTests.framework */; };
+		C337952E1D147E3C4DF14A3F /* Pods_GrayscaleModeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5176DCF195C967A029C434E /* Pods_GrayscaleModeUITests.framework */; };
+		F30898E371ECFCE86A48B4DF /* Pods_GrayscaleMode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0611573AEECB452BB362CD /* Pods_GrayscaleMode.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0611573AEECB452BB362CD /* Pods_GrayscaleMode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrayscaleMode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45482BEF1DD7948EBF170F52 /* Pods_GrayscaleModeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrayscaleModeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BBA53E22073F19005718DE /* GrayscaleMode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrayscaleMode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BBA54122073F19005718DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54BBA54322073F19005718DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +55,13 @@
 		54BBA56F2207EC44005718DE /* GrayscaleMode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GrayscaleMode-Bridging-Header.h"; sourceTree = "<group>"; };
 		54BBA5722207ECF3005718DE /* grayscale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grayscale.h; sourceTree = "<group>"; };
 		54BBA5732207ECF3005718DE /* grayscale.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = grayscale.c; sourceTree = "<group>"; };
+		597B0F172A4FEA2D4F2B5E98 /* Pods-GrayscaleMode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayscaleMode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrayscaleMode/Pods-GrayscaleMode.debug.xcconfig"; sourceTree = "<group>"; };
+		94D2D52EFA4B58B265C58C32 /* Pods-GrayscaleModeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayscaleModeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrayscaleModeUITests/Pods-GrayscaleModeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0D89A160D031CE9EA5C099D /* Pods-GrayscaleModeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayscaleModeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrayscaleModeTests/Pods-GrayscaleModeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A6521DBADDFF5C6566647205 /* Pods-GrayscaleModeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayscaleModeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrayscaleModeTests/Pods-GrayscaleModeTests.release.xcconfig"; sourceTree = "<group>"; };
+		B041384820ED2186785D8F1A /* Pods-GrayscaleMode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayscaleMode.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrayscaleMode/Pods-GrayscaleMode.release.xcconfig"; sourceTree = "<group>"; };
+		D5176DCF195C967A029C434E /* Pods_GrayscaleModeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrayscaleModeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFEABBB258C29DF97FD7D397 /* Pods-GrayscaleModeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayscaleModeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrayscaleModeUITests/Pods-GrayscaleModeUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30898E371ECFCE86A48B4DF /* Pods_GrayscaleMode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791C386B5E0853D4F186F60E /* Pods_GrayscaleModeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C337952E1D147E3C4DF14A3F /* Pods_GrayscaleModeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +99,8 @@
 				54BBA55322073F1B005718DE /* GrayscaleModeTests */,
 				54BBA55E22073F1B005718DE /* GrayscaleModeUITests */,
 				54BBA53F22073F19005718DE /* Products */,
+				9A334568623570ECEC2CACA2 /* Pods */,
+				B9F967515074EA111119CEF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +148,29 @@
 			path = GrayscaleModeUITests;
 			sourceTree = "<group>";
 		};
+		9A334568623570ECEC2CACA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				597B0F172A4FEA2D4F2B5E98 /* Pods-GrayscaleMode.debug.xcconfig */,
+				B041384820ED2186785D8F1A /* Pods-GrayscaleMode.release.xcconfig */,
+				A0D89A160D031CE9EA5C099D /* Pods-GrayscaleModeTests.debug.xcconfig */,
+				A6521DBADDFF5C6566647205 /* Pods-GrayscaleModeTests.release.xcconfig */,
+				94D2D52EFA4B58B265C58C32 /* Pods-GrayscaleModeUITests.debug.xcconfig */,
+				EFEABBB258C29DF97FD7D397 /* Pods-GrayscaleModeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9F967515074EA111119CEF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B0611573AEECB452BB362CD /* Pods_GrayscaleMode.framework */,
+				45482BEF1DD7948EBF170F52 /* Pods_GrayscaleModeTests.framework */,
+				D5176DCF195C967A029C434E /* Pods_GrayscaleModeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54BBA56422073F1B005718DE /* Build configuration list for PBXNativeTarget "GrayscaleMode" */;
 			buildPhases = (
+				C45E0C1D7130306CEE374D5C /* [CP] Check Pods Manifest.lock */,
 				54BBA53A22073F19005718DE /* Sources */,
 				54BBA53B22073F19005718DE /* Frameworks */,
 				54BBA53C22073F19005718DE /* Resources */,
+				F5703B0182C36E63C3A878E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54BBA56722073F1B005718DE /* Build configuration list for PBXNativeTarget "GrayscaleModeTests" */;
 			buildPhases = (
+				6B22F1AB5C95A7D27AB1FE74 /* [CP] Check Pods Manifest.lock */,
 				54BBA54C22073F1B005718DE /* Sources */,
 				54BBA54D22073F1B005718DE /* Frameworks */,
 				54BBA54E22073F1B005718DE /* Resources */,
@@ -173,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54BBA56A22073F1B005718DE /* Build configuration list for PBXNativeTarget "GrayscaleModeUITests" */;
 			buildPhases = (
+				A9A10A88A9642A9A7129A466 /* [CP] Check Pods Manifest.lock */,
 				54BBA55722073F1B005718DE /* Sources */,
 				54BBA55822073F1B005718DE /* Frameworks */,
 				54BBA55922073F1B005718DE /* Resources */,
@@ -256,6 +300,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B22F1AB5C95A7D27AB1FE74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrayscaleModeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9A10A88A9642A9A7129A466 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrayscaleModeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C45E0C1D7130306CEE374D5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrayscaleMode-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5703B0182C36E63C3A878E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GrayscaleMode/Pods-GrayscaleMode-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Defaults/Defaults.framework",
+				"${BUILT_PRODUCTS_DIR}/LaunchAtLogin/LaunchAtLogin.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Defaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LaunchAtLogin.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrayscaleMode/Pods-GrayscaleMode-frameworks.sh\"\n\"${PROJECT_DIR}/Pods/LaunchAtLogin/LaunchAtLogin/copy-helper.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		54BBA53A22073F19005718DE /* Sources */ = {
@@ -428,6 +565,7 @@
 		};
 		54BBA56522073F1B005718DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 597B0F172A4FEA2D4F2B5E98 /* Pods-GrayscaleMode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -450,6 +588,7 @@
 		};
 		54BBA56622073F1B005718DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B041384820ED2186785D8F1A /* Pods-GrayscaleMode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -471,6 +610,7 @@
 		};
 		54BBA56822073F1B005718DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0D89A160D031CE9EA5C099D /* Pods-GrayscaleModeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +632,7 @@
 		};
 		54BBA56922073F1B005718DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6521DBADDFF5C6566647205 /* Pods-GrayscaleModeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -513,6 +654,7 @@
 		};
 		54BBA56B22073F1B005718DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94D2D52EFA4B58B265C58C32 /* Pods-GrayscaleModeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -533,6 +675,7 @@
 		};
 		54BBA56C22073F1B005718DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFEABBB258C29DF97FD7D397 /* Pods-GrayscaleModeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

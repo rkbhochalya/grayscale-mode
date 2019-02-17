@@ -1,0 +1,6 @@
+framework module Pods_GrayscaleMode {
+  umbrella header "Pods-GrayscaleMode-umbrella.h"
+
+  export *
+  module * { export * }
+}
