@@ -1,19 +1,19 @@
 # LaunchAtLogin
 
-> Add "Launch at Login" functionality to your sandboxed macOS app in seconds
+> Add "Launch at Login" functionality to your macOS app in seconds
 
 It's usually quite a [convoluted and error-prone process](before-after.md) to add this. **No more!**
 
-It's App Store compatible and used in my [Lungo](https://blog.sindresorhus.com/lungo-b364a6c2745f) and [Battery Indicator](https://sindresorhus.com/battery-indicator) app.
+This package works with both sandboxed and non-sandboxed apps and it's App Store compatible and used in my [Lungo](https://blog.sindresorhus.com/lungo-b364a6c2745f) and [Battery Indicator](https://sindresorhus.com/battery-indicator) apps.
 
-You might also find my [`create-dmg`](https://github.com/sindresorhus/create-dmg) project useful.
+*You might also find my [`create-dmg`](https://github.com/sindresorhus/create-dmg) project useful if you're publishing your app outside the App Store.*
 
 
 ## Requirements
 
 - macOS 10.12+
-- Xcode 9.3+
-- Swift 4.1+
+- Xcode 10+
+- Swift 4.2+
 
 
 ## Install
@@ -39,8 +39,16 @@ pod 'LaunchAtLogin'
 
 Add a new ["Run Script Phase"](http://stackoverflow.com/a/39633955/64949) below "Embed Frameworks" in "Build Phases" with the following:
 
+Carthage:
+
 ```sh
-./Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh
+"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh"
+```
+
+CocoaPods:
+
+```sh
+"${PROJECT_DIR}/Pods/LaunchAtLogin/LaunchAtLogin/copy-helper.sh"
 ```
 
 Use it in your app:
@@ -70,6 +78,7 @@ The framework bundles the helper app needed to launch your app and copies it int
 - [Defaults](https://github.com/sindresorhus/Defaults) - Swifty and modern UserDefaults
 - [Preferences](https://github.com/sindresorhus/Preferences) - Add a preferences window to your macOS app in minutes
 - [DockProgress](https://github.com/sindresorhus/DockProgress) - Show progress in your app's Dock icon
+- [More…](https://github.com/search?q=user%3Asindresorhus+language%3Aswift)
 
 
 ## License
