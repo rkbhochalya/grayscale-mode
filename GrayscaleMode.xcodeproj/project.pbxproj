@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543121B222230E70006B5F8D /* Defaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B122230E70006B5F8D /* Defaults.framework */; };
+		543121B322230E70006B5F8D /* Defaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B122230E70006B5F8D /* Defaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		543121B622230E80006B5F8D /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B522230E80006B5F8D /* LaunchAtLogin.framework */; };
+		543121B722230E81006B5F8D /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B522230E80006B5F8D /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		543121BB22230F18006B5F8D /* LaunchAtLogin.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */; };
+		543121BC22230F18006B5F8D /* Defaults.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543121BA22230F17006B5F8D /* Defaults.framework.dSYM */; };
 		54BBA54222073F19005718DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA54122073F19005718DE /* AppDelegate.swift */; };
 		54BBA54422073F19005718DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA54322073F19005718DE /* ViewController.swift */; };
 		54BBA54622073F1A005718DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54BBA54522073F1A005718DE /* Assets.xcassets */; };
@@ -33,7 +39,37 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		543121B422230E70006B5F8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				543121B722230E81006B5F8D /* LaunchAtLogin.framework in Embed Frameworks */,
+				543121B322230E70006B5F8D /* Defaults.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		543121B822230EE9006B5F8D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				543121BB22230F18006B5F8D /* LaunchAtLogin.framework.dSYM in CopyFiles */,
+				543121BC22230F18006B5F8D /* Defaults.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		543121B122230E70006B5F8D /* Defaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Defaults.framework; path = Carthage/Build/Mac/Defaults.framework; sourceTree = "<group>"; };
+		543121B522230E80006B5F8D /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
+		543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = LaunchAtLogin.framework.dSYM; path = Carthage/Build/Mac/LaunchAtLogin.framework.dSYM; sourceTree = "<group>"; };
+		543121BA22230F17006B5F8D /* Defaults.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Defaults.framework.dSYM; path = Carthage/Build/Mac/Defaults.framework.dSYM; sourceTree = "<group>"; };
 		54BBA53E22073F19005718DE /* GrayscaleMode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrayscaleMode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BBA54122073F19005718DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54BBA54322073F19005718DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543121B622230E80006B5F8D /* LaunchAtLogin.framework in Frameworks */,
+				543121B222230E70006B5F8D /* Defaults.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +118,10 @@
 		54BBA53522073F19005718DE = {
 			isa = PBXGroup;
 			children = (
+				543121BA22230F17006B5F8D /* Defaults.framework.dSYM */,
+				543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */,
+				543121B522230E80006B5F8D /* LaunchAtLogin.framework */,
+				543121B122230E70006B5F8D /* Defaults.framework */,
 				54BBA54022073F19005718DE /* GrayscaleMode */,
 				54BBA55322073F1B005718DE /* GrayscaleModeTests */,
 				54BBA55E22073F1B005718DE /* GrayscaleModeUITests */,
@@ -141,7 +183,9 @@
 				54BBA53A22073F19005718DE /* Sources */,
 				54BBA53B22073F19005718DE /* Frameworks */,
 				54BBA53C22073F19005718DE /* Resources */,
-				540A8ECA2219739C005B8CA5 /* ShellScript */,
+				543121B422230E70006B5F8D /* Embed Frameworks */,
+				543121B822230EE9006B5F8D /* CopyFiles */,
+				540A8ECA2219739C005B8CA5 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -259,7 +303,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		540A8ECA2219739C005B8CA5 /* ShellScript */ = {
+		540A8ECA2219739C005B8CA5 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -268,13 +312,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/Pods/LaunchAtLogin/LaunchAtLogin/copy-helper.sh\"\n";
+			shellScript = "\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -457,6 +502,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 84E7EV25H5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = GrayscaleMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,6 +530,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 84E7EV25H5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = GrayscaleMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
