@@ -1,9 +1,9 @@
 {
-  "commitish" : "v1.0.0",
+  "commitish" : "v2.0.0",
   "Mac" : [
     {
       "name" : "Defaults",
-      "hash" : "8d94b0be2a9301710290e71e09b5ca9f55f70ad7effffe6b3032bb5ced159ee9"
+      "hash" : "3ee736abe82a0051c6581c74d775f7f9fe4ef3652951339f2e9627e4d7ef039c"
     }
   ]
 }
