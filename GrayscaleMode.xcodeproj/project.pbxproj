@@ -244,14 +244,16 @@
 				TargetAttributes = {
 					54BBA53D22073F19005718DE = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					54BBA54F22073F1B005718DE = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 54BBA53D22073F19005718DE;
 					};
 					54BBA55A22073F1B005718DE = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 54BBA53D22073F19005718DE;
 					};
 				};
@@ -518,7 +520,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GrayscaleMode/GrayscaleMode-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -548,7 +550,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GrayscaleMode/GrayscaleMode-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -569,7 +571,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.rkb.GrayscaleModeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrayscaleMode.app/Contents/MacOS/GrayscaleMode";
 			};
 			name = Debug;
@@ -590,7 +592,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.rkb.GrayscaleModeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrayscaleMode.app/Contents/MacOS/GrayscaleMode";
 			};
 			name = Release;
@@ -610,7 +612,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.rkb.GrayscaleModeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = GrayscaleMode;
 			};
 			name = Debug;
@@ -630,7 +632,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.rkb.GrayscaleModeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = GrayscaleMode;
 			};
 			name = Release;
