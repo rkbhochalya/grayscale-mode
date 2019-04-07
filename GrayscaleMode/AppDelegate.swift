@@ -9,6 +9,7 @@
 import Cocoa
 import LaunchAtLogin
 import Defaults
+import HotKey
 
 extension Defaults.Keys {
     static let isEnableAtLaunchOn = Defaults.Key<Bool>("isEnableAtLaunchOn", default: false)
@@ -25,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var menuItemEnableOnLeftClick: NSMenuItem!
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    
+    let hotKey = HotKey(key: .g, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DispatchQueue.main.async {
@@ -44,6 +47,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         checkLaunchAtStartupState()
         checkEnableAtLaunchState()
         checkEnableOnLeftClickState()
+        
+        hotKey.keyDownHandler = {
+            toggleGrayscale()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

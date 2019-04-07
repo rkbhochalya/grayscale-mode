@@ -1,0 +1,11 @@
+framework module HotKey {
+  umbrella header "HotKey.h"
+
+  export *
+  module * { export * }
+}
+
+module HotKey.Swift {
+    header "HotKey-Swift.h"
+    requires objc
+}
