@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
-    let hotKey = HotKey(key: .g, modifiers: [.control])
+    let hotKey = HotKey(key: .g, modifiers: [.command, .option])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DispatchQueue.main.async {
