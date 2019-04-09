@@ -10,6 +10,8 @@
 		54153655225A0BD000C7421E /* HotKey.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54153654225A0BD000C7421E /* HotKey.framework.dSYM */; };
 		54153657225A0BE200C7421E /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54153656225A0BE200C7421E /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		54153659225A0BF900C7421E /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54153656225A0BE200C7421E /* HotKey.framework */; };
+		5415365F225A1D8D00C7421E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5415365E225A1D8D00C7421E /* PreferencesViewController.swift */; };
+		54153673225B21CE00C7421E /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54153672225B21CE00C7421E /* util.swift */; };
 		543121B222230E70006B5F8D /* Defaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B122230E70006B5F8D /* Defaults.framework */; };
 		543121B322230E70006B5F8D /* Defaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B122230E70006B5F8D /* Defaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		543121B622230E80006B5F8D /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B522230E80006B5F8D /* LaunchAtLogin.framework */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		54153654225A0BD000C7421E /* HotKey.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = HotKey.framework.dSYM; path = Carthage/Build/Mac/HotKey.framework.dSYM; sourceTree = "<group>"; };
 		54153656225A0BE200C7421E /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
+		5415365E225A1D8D00C7421E /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		54153672225B21CE00C7421E /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		543121B122230E70006B5F8D /* Defaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Defaults.framework; path = Carthage/Build/Mac/Defaults.framework; sourceTree = "<group>"; };
 		543121B522230E80006B5F8D /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = LaunchAtLogin.framework.dSYM; path = Carthage/Build/Mac/LaunchAtLogin.framework.dSYM; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				54BBA56F2207EC44005718DE /* GrayscaleMode-Bridging-Header.h */,
 				54BBA5722207ECF3005718DE /* grayscale.h */,
 				54BBA5732207ECF3005718DE /* grayscale.c */,
+				5415365E225A1D8D00C7421E /* PreferencesViewController.swift */,
+				54153672225B21CE00C7421E /* util.swift */,
 			);
 			path = GrayscaleMode;
 			sourceTree = "<group>";
@@ -351,6 +357,8 @@
 				54BBA54422073F19005718DE /* ViewController.swift in Sources */,
 				54BBA54222073F19005718DE /* AppDelegate.swift in Sources */,
 				54BBA5742207ECF3005718DE /* grayscale.c in Sources */,
+				54153673225B21CE00C7421E /* util.swift in Sources */,
+				5415365F225A1D8D00C7421E /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

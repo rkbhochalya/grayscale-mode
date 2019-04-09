@@ -12,107 +12,114 @@ import Defaults
 import HotKey
 
 extension Defaults.Keys {
-    static let isEnableAtLaunchOn = Defaults.Key<Bool>("isEnableAtLaunchOn", default: false)
-    static let isEnableOnLeftKeyOn = Defaults.Key<Bool>("isEnableOnLeftKeyOn", default: false)
+    static let isEnabledAtLaunch = Defaults.Key<Bool>("isEnabledAtLaunch", default: false)
+    static let isEnabledOnLeftClick = Defaults.Key<Bool>("isEnabledOnLeftClick", default: false)
+    static let isHotKeyEnabled = Defaults.Key<Bool>("isHotKeyEnabled", default: true)
 }
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var statusMenu: NSMenu!
-    @IBOutlet weak var menuItemEnableGrayscaleMode: NSMenuItem!
-    @IBOutlet weak var menuItemLaunchAtStartup: NSMenuItem!
-    @IBOutlet weak var menuItemEnableAtLaunch: NSMenuItem!
-    @IBOutlet weak var menuItemEnableOnLeftClick: NSMenuItem!
+    @IBOutlet weak var enableGrayscaleModeMenuItem: NSMenuItem!
+    @IBOutlet weak var launchAtLoginMenuItem: NSMenuItem!
+    @IBOutlet weak var enableAtLaunchMenuItem: NSMenuItem!
+    @IBOutlet weak var enableOnLeftClickMenuItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
+
     let hotKey = HotKey(key: .g, modifiers: [.command, .option])
+
+    var prefViewController: PreferencesViewController!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DispatchQueue.main.async {
             self.statusItem.button?.image = #imageLiteral(resourceName: "statusBarIcon")
         }
-        
+
         if let button = statusItem.button {
             button.action = #selector(self.handleMenuIconClick(sender:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
-        
-        if defaults[.isEnableAtLaunchOn] {
+
+        if defaults[.isEnabledAtLaunch] {
             enableGrayscale()
         }
-        
-        checkEnableGrayscaleModeState()
-        checkLaunchAtStartupState()
-        checkEnableAtLaunchState()
-        checkEnableOnLeftClickState()
-        
+
         hotKey.keyDownHandler = {
             toggleGrayscale()
         }
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.defaultsChanged),
+                                               name: UserDefaults.didChangeNotification,
+                                               object: nil)
+
+        syncEnableGrayscaleModeMenuItemState()
+        syncLaunchAtLoginMenuItemState()
+        updateMenuItemsStateFromDefaults()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
-    @IBAction func toggleGrayscaleMode(_ sender: NSMenuItem) {
-        toggleGrayscale();
-        checkEnableGrayscaleModeState()
+
+    @objc func defaultsChanged() {
+        updateMenuItemsStateFromDefaults()
+        // Note: for some reason getting/setting defaults using defaults object
+        // (eg. defaults[.isHotKeyEnabled]) returns runtime error: EXC_BAD_INSTRUCTION
+        hotKey.isPaused = !UserDefaults.standard.bool(forKey: "isHotKeyEnabled")
     }
 
-    @IBAction func toggleLaunchAtStartup(_ sender: NSMenuItem) {
-        LaunchAtLogin.isEnabled = !LaunchAtLogin.isEnabled
-        checkLaunchAtStartupState()
-    }
-    
-    @IBAction func toggleEnableAtLaunch(_ sender: NSMenuItem) {
-        defaults[.isEnableAtLaunchOn] = !defaults[.isEnableAtLaunchOn]
-        checkEnableAtLaunchState()
-    }
-    
-    @IBAction func toggleEnableOnLeftClick(_ sender: NSMenuItem) {
-        defaults[.isEnableOnLeftKeyOn] = !defaults[.isEnableOnLeftKeyOn]
-        checkEnableOnLeftClickState()
-    }
-    
-    func checkEnableGrayscaleModeState() {
-        let state = checkIfGrayscaleOn() ? 1 : 0
-        menuItemEnableGrayscaleMode.state = NSControl.StateValue(rawValue: state)
-    }
-    
-    func checkLaunchAtStartupState() {
-        let state = LaunchAtLogin.isEnabled ? 1 : 0
-        menuItemLaunchAtStartup.state = NSControl.StateValue(rawValue: state)
+    func updateMenuItemsStateFromDefaults() {
+        let isEnabledAtLaunch = UserDefaults.standard.bool(forKey: "isEnabledAtLaunch")
+        let isEnabledOnLeftClick = UserDefaults.standard.bool(forKey: "isEnabledOnLeftClick")
+        enableAtLaunchMenuItem.state = isEnabledAtLaunch.toNSControlState()
+        enableOnLeftClickMenuItem.state = isEnabledOnLeftClick.toNSControlState()
     }
 
-    func checkEnableAtLaunchState() {
-        let state = defaults[.isEnableAtLaunchOn] ? 1 : 0
-        menuItemEnableAtLaunch.state = NSControl.StateValue(rawValue: state)
+    func syncLaunchAtLoginMenuItemState() {
+        launchAtLoginMenuItem.state = LaunchAtLogin.isEnabled.toNSControlState()
     }
-    
-    func checkEnableOnLeftClickState() {
-        let state = defaults[.isEnableOnLeftKeyOn] ? 1 : 0
-        menuItemEnableOnLeftClick.state = NSControl.StateValue(rawValue: state)
+
+    func syncEnableGrayscaleModeMenuItemState() {
+        enableGrayscaleModeMenuItem.state = checkIfGrayscaleOn().toNSControlState()
     }
-    
+
     @objc func handleMenuIconClick(sender: NSStatusItem) {
-        
         let event = NSApp.currentEvent!
-        
-        if !defaults[.isEnableOnLeftKeyOn] {
+
+        if !defaults[.isEnabledOnLeftClick] {
             statusItem.popUpMenu(statusMenu)
             return
         }
-        
+
         if event.type == NSEvent.EventType.leftMouseUp {
             statusItem.popUpMenu(statusMenu)
         } else {
-            toggleGrayscale();
-            checkEnableGrayscaleModeState()
+            toggleGrayscale()
+            syncEnableGrayscaleModeMenuItemState()
         }
-        
+    }
+
+    @IBAction func toggleGrayscaleMode(_ sender: NSMenuItem) {
+        toggleGrayscale()
+        syncEnableGrayscaleModeMenuItemState()
+    }
+
+    @IBAction func toggleLaunchAtLogin(_ sender: NSMenuItem) {
+        LaunchAtLogin.isEnabled.toggle()
+        syncLaunchAtLoginMenuItemState()
+        if let prefViewController = prefViewController {
+            prefViewController.syncLaunchAtLoginCheckboxState()
+        }
+    }
+
+    @IBAction func toggleEnableAtLaunch(_ sender: NSMenuItem) {
+        defaults[.isEnabledAtLaunch].toggle()
+    }
+
+    @IBAction func toggleEnableOnLeftClick(_ sender: NSMenuItem) {
+        defaults[.isEnabledOnLeftClick].toggle()
     }
 }
-
