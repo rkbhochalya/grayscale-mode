@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Window Controller-->
+        <scene sceneID="YE5-kR-xCh">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="3vK-Gx-CLN" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9ll-2e-xbd">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <rect key="contentRect" x="735" y="500" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="3vK-Gx-CLN" id="ESg-Ly-Jrz"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="HyQ-cD-WDv" kind="relationship" relationship="window.shadowedContentViewController" id="6DP-ue-nTH"/>
+                    </connections>
+                </windowController>
+                <customObject id="XK1-G3-9Im" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-187" y="271"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="vZW-16-Uva">
+            <objects>
+                <viewController id="HyQ-cD-WDv" customClass="PreferencesViewController" customModule="GrayscaleMode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="wNo-V8-Scz">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="140"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-bH-R9a">
+                                <rect key="frame" x="40" y="94" width="133" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Launch at startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XhX-6e-5gq">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="launchAtLoginDidChange:" target="HyQ-cD-WDv" id="qZi-cl-aj8"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TRt-NT-BsV">
+                                <rect key="frame" x="40" y="72" width="122" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Enable at launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HCp-Gh-Pw2">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="enableAtLaunchDidChange:" target="HyQ-cD-WDv" id="i8W-k0-CsG"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnl-TN-Vnp">
+                                <rect key="frame" x="40" y="50" width="139" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Enable on left-click" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5U1-EV-l13">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="enableOnLeftClickDidChange:" target="HyQ-cD-WDv" id="zlg-zn-zDZ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-Yt-hgn">
+                                <rect key="frame" x="40" y="28" width="157" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Enable hot key (⌥⌘G)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Qrm-Py-alC">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="enableHotKeyDidChange:" target="HyQ-cD-WDv" id="UzV-eE-psw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="LaunchAtLoginCheckbox" destination="XhX-6e-5gq" id="23W-pv-hyk"/>
+                        <outlet property="enableAtLaunchCheckbox" destination="HCp-Gh-Pw2" id="EuX-E1-hjA"/>
+                        <outlet property="enableHotKeyCheckbox" destination="f3S-Yt-hgn" id="xxU-gN-DVd"/>
+                        <outlet property="enableOnLeftClickCheckbox" destination="5U1-EV-l13" id="pQH-hc-cp5"/>
+                        <outlet property="launchAtLoginCheckbox" destination="dIw-bH-R9a" id="jow-S1-JQo"/>
+                    </connections>
+                </viewController>
+                <customObject id="nXm-2M-kah" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="234"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
@@ -24,7 +111,7 @@
                                         <menuItem title="Launch at startup" id="QeW-s5-gce">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="toggleLaunchAtStartup:" target="Voe-Tx-rLC" id="Kwo-fz-Tu2"/>
+                                                <action selector="toggleLaunchAtLogin:" target="Voe-Tx-rLC" id="Kwo-fz-Tu2"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enable at launch" id="5Qm-2a-8UQ">
@@ -40,6 +127,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="zkv-q0-6i1"/>
+                                        <menuItem title="Preferences..." keyEquivalent="," id="DIO-do-G0a" userLabel="Preferences">
+                                            <connections>
+                                                <segue destination="3vK-Gx-CLN" kind="show" id="HSf-sa-cTK"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Quit" keyEquivalent="q" id="4sb-4s-VLi" userLabel="Quit">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
@@ -56,17 +148,17 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="GrayscaleMode" customModuleProvider="target">
                     <connections>
-                        <outlet property="menuItemEnableAtLaunch" destination="5Qm-2a-8UQ" id="e2P-QG-QM4"/>
-                        <outlet property="menuItemEnableGrayscaleMode" destination="Zzz-47-AHk" id="UQd-75-vfh"/>
-                        <outlet property="menuItemEnableOnLeftClick" destination="RNe-bO-WKw" id="CNw-8a-XpV"/>
-                        <outlet property="menuItemLaunchAtStartup" destination="QeW-s5-gce" id="g6o-SW-m59"/>
+                        <outlet property="enableAtLaunchMenuItem" destination="5Qm-2a-8UQ" id="e2P-QG-QM4"/>
+                        <outlet property="enableGrayscaleModeMenuItem" destination="Zzz-47-AHk" id="UQd-75-vfh"/>
+                        <outlet property="enableOnLeftClickMenuItem" destination="RNe-bO-WKw" id="CNw-8a-XpV"/>
+                        <outlet property="launchAtLoginMenuItem" destination="QeW-s5-gce" id="g6o-SW-m59"/>
                         <outlet property="statusMenu" destination="uQy-DD-JDr" id="w3a-zm-ChM"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-362" y="-151"/>
         </scene>
     </scenes>
 </document>
