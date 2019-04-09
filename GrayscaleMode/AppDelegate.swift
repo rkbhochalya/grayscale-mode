@@ -48,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         hotKey.keyDownHandler = {
             toggleGrayscale()
+            self.syncEnableGrayscaleModeMenuItemState()
         }
 
         NotificationCenter.default.addObserver(self,
