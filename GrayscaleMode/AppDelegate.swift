@@ -9,7 +9,6 @@
 import Cocoa
 import LaunchAtLogin
 import Defaults
-import HotKey
 
 extension Defaults.Keys {
     static let isEnabledAtLaunch = Defaults.Key<Bool>("isEnabledAtLaunch", default: false)
@@ -28,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
-    let hotKey = HotKey(key: .g, modifiers: [.command, .option])
+    let toggleShortcutUserDefaultsKey = "toggleShortcutKey"
 
     var prefViewController: PreferencesViewController!
 
@@ -46,16 +45,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             enableGrayscale()
         }
 
-        hotKey.keyDownHandler = {
-            toggleGrayscale()
-            self.syncEnableGrayscaleModeMenuItemState()
-        }
-
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.defaultsChanged),
                                                name: UserDefaults.didChangeNotification,
                                                object: nil)
 
+        setDefaultShortcutOnFirstLaunch()
         syncEnableGrayscaleModeMenuItemState()
         syncLaunchAtLoginMenuItemState()
         updateMenuItemsStateFromDefaults()
@@ -69,7 +64,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         updateMenuItemsStateFromDefaults()
         // Note: for some reason getting/setting defaults using defaults object
         // (eg. defaults[.isHotKeyEnabled]) returns runtime error: EXC_BAD_INSTRUCTION
-        hotKey.isPaused = !UserDefaults.standard.bool(forKey: "isHotKeyEnabled")
+        if UserDefaults.standard.bool(forKey: "isHotKeyEnabled") {
+            // Bind shortcut to grayscale mode toggle action
+            MASShortcutBinder.shared().bindShortcut(withDefaultsKey: toggleShortcutUserDefaultsKey, toAction: {
+                toggleGrayscale()
+                self.syncEnableGrayscaleModeMenuItemState()
+            })
+        } else {
+            MASShortcutBinder.shared().breakBinding(withDefaultsKey: toggleShortcutUserDefaultsKey)
+        }
     }
 
     func updateMenuItemsStateFromDefaults() {
@@ -77,6 +80,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let isEnabledOnLeftClick = UserDefaults.standard.bool(forKey: "isEnabledOnLeftClick")
         enableAtLaunchMenuItem.state = isEnabledAtLaunch.toNSControlState()
         enableOnLeftClickMenuItem.state = isEnabledOnLeftClick.toNSControlState()
+    }
+
+    func setDefaultShortcutOnFirstLaunch() {
+        let modifierFlags = NSEvent.ModifierFlags.init(arrayLiteral: [.option, .command]).rawValue
+        guard let defaultShortcut = MASShortcut(keyCode: UInt(kVK_ANSI_G),
+                                                modifierFlags: modifierFlags) else { return }
+        guard let defaultShortcutData = try? NSKeyedArchiver
+            .archivedData(withRootObject: defaultShortcut, requiringSecureCoding: false) else {
+                return
+        }
+        UserDefaults.standard.register(defaults: [toggleShortcutUserDefaultsKey: defaultShortcutData])
     }
 
     func syncLaunchAtLoginMenuItemState() {

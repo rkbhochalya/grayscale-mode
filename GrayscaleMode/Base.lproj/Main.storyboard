@@ -30,11 +30,11 @@
             <objects>
                 <viewController id="HyQ-cD-WDv" customClass="PreferencesViewController" customModule="GrayscaleMode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wNo-V8-Scz">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="167"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-bH-R9a">
-                                <rect key="frame" x="40" y="94" width="133" height="18"/>
+                                <rect key="frame" x="40" y="121" width="133" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Launch at startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XhX-6e-5gq">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -45,18 +45,18 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TRt-NT-BsV">
-                                <rect key="frame" x="40" y="72" width="122" height="18"/>
+                                <rect key="frame" x="40" y="99" width="122" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Enable at launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HCp-Gh-Pw2">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="enableAtLaunchDidChange:" target="HyQ-cD-WDv" id="i8W-k0-CsG"/>
+                                    <action selector="enableAtLaunchDidChange:" target="HyQ-cD-WDv" id="eqQ-6K-e4G"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnl-TN-Vnp">
-                                <rect key="frame" x="40" y="50" width="139" height="18"/>
+                                <rect key="frame" x="40" y="77" width="139" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Enable on left-click" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5U1-EV-l13">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -66,25 +66,39 @@
                                     <action selector="enableOnLeftClickDidChange:" target="HyQ-cD-WDv" id="zlg-zn-zDZ"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-Yt-hgn">
-                                <rect key="frame" x="40" y="28" width="157" height="18"/>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ngP-km-LN4" customClass="MASShortcutView">
+                                <rect key="frame" x="123" y="30" width="160" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Enable hot key (⌥⌘G)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Qrm-Py-alC">
+                            </customView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HbW-IN-rfG">
+                                <rect key="frame" x="40" y="54" width="160" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Enable toggle shortcut" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jSQ-nM-c7k">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="enableHotKeyDidChange:" target="HyQ-cD-WDv" id="UzV-eE-psw"/>
+                                    <action selector="enableHotKeyDidChange:" target="HyQ-cD-WDv" id="gRV-8y-bAc"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-2l-g4d">
+                                <rect key="frame" x="60" y="32" width="57" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Shortcut" id="MEB-cJ-app">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="LaunchAtLoginCheckbox" destination="XhX-6e-5gq" id="23W-pv-hyk"/>
                         <outlet property="enableAtLaunchCheckbox" destination="HCp-Gh-Pw2" id="EuX-E1-hjA"/>
-                        <outlet property="enableHotKeyCheckbox" destination="f3S-Yt-hgn" id="xxU-gN-DVd"/>
                         <outlet property="enableOnLeftClickCheckbox" destination="5U1-EV-l13" id="pQH-hc-cp5"/>
+                        <outlet property="enableHotKeyCheckbox" destination="HbW-IN-rfG" id="5Oh-Jz-dlA"/>
                         <outlet property="launchAtLoginCheckbox" destination="dIw-bH-R9a" id="jow-S1-JQo"/>
+                        <outlet property="toggleShortcutView" destination="ngP-km-LN4" id="suh-aV-F2R"/>
                     </connections>
                 </viewController>
                 <customObject id="nXm-2M-kah" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

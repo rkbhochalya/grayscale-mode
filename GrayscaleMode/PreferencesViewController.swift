@@ -9,6 +9,7 @@
 import Cocoa
 import Defaults
 import LaunchAtLogin
+import MASShortcut
 
 class PreferencesViewController: NSViewController {
 
@@ -16,6 +17,7 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var enableAtLaunchCheckbox: NSButtonCell!
     @IBOutlet weak var enableOnLeftClickCheckbox: NSButtonCell!
     @IBOutlet weak var enableHotKeyCheckbox: NSButtonCell!
+    @IBOutlet weak var toggleShortcutView: MASShortcutView!
 
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
 
@@ -28,6 +30,8 @@ class PreferencesViewController: NSViewController {
                                                selector: #selector(self.defaultsChanged),
                                                name: UserDefaults.didChangeNotification,
                                                object: nil)
+
+        toggleShortcutView.associatedUserDefaultsKey = appDelegate.toggleShortcutUserDefaultsKey
 
         syncLaunchAtLoginCheckboxState()
         updateCheckboxesStateFromDefaults();
@@ -49,6 +53,7 @@ class PreferencesViewController: NSViewController {
         enableAtLaunchCheckbox.state = isEnabledAtLaunch.toNSControlState()
         enableOnLeftClickCheckbox.state = isEnabledOnLeftClick.toNSControlState()
         enableHotKeyCheckbox.state = isHotKeyEnabled.toNSControlState()
+        toggleShortcutView.isEnabled = isHotKeyEnabled
     }
 
     func syncLaunchAtLoginCheckboxState() {
