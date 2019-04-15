@@ -11,8 +11,8 @@ import LaunchAtLogin
 import Defaults
 
 extension Defaults.Keys {
-    static let isEnabledAtLaunch = Defaults.Key<Bool>("isEnabledAtLaunch", default: false)
-    static let isEnabledOnLeftClick = Defaults.Key<Bool>("isEnabledOnLeftClick", default: false)
+    static let isEnabled = Defaults.Key<Bool>("isEnabled", default: false)
+    static let shouldEnableOnLeftClick = Defaults.Key<Bool>("shouldEnableOnLeftClick", default: false)
     static let isHotKeyEnabled = Defaults.Key<Bool>("isHotKeyEnabled", default: true)
 }
 
@@ -22,14 +22,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var enableGrayscaleModeMenuItem: NSMenuItem!
     @IBOutlet weak var launchAtLoginMenuItem: NSMenuItem!
-    @IBOutlet weak var enableAtLaunchMenuItem: NSMenuItem!
     @IBOutlet weak var enableOnLeftClickMenuItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
     let toggleShortcutUserDefaultsKey = "toggleShortcutKey"
-
     var prefViewController: PreferencesViewController!
+    var isEnabledObserver: DefaultsObservation!
+    var shouldEnableOnLeftClickObserver: DefaultsObservation!
+    var isHotKeyEnabledObserver: DefaultsObservation!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DispatchQueue.main.async {
@@ -41,45 +41,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
-        if defaults[.isEnabledAtLaunch] {
-            enableGrayscale()
+        isEnabledObserver = defaults.observe(.isEnabled, options: [.initial, .old, .new]) { change in
+            if change.newValue {
+                enableGrayscaleMode()
+            } else {
+                disableGrayscaleMode()
+            }
+            self.enableGrayscaleModeMenuItem.state = change.newValue.toNSControlState()
         }
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.defaultsChanged),
-                                               name: UserDefaults.didChangeNotification,
-                                               object: nil)
+        shouldEnableOnLeftClickObserver = defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
+            self.enableOnLeftClickMenuItem.state = change.newValue.toNSControlState()
+        }
+
+        isHotKeyEnabledObserver = defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
+            if change.newValue {
+                // Bind shortcut to grayscale mode toggle action
+                MASShortcutBinder.shared().bindShortcut(withDefaultsKey: self.toggleShortcutUserDefaultsKey, toAction: {
+                    defaults[.isEnabled].toggle()
+                })
+            } else {
+                // Remove shortcut callback binding
+                MASShortcutBinder.shared().breakBinding(withDefaultsKey: self.toggleShortcutUserDefaultsKey)
+            }
+        }
 
         setDefaultShortcutOnFirstLaunch()
-        syncEnableGrayscaleModeMenuItemState()
         syncLaunchAtLoginMenuItemState()
-        updateMenuItemsStateFromDefaults()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        disableGrayscale()
-    }
-
-    @objc func defaultsChanged() {
-        updateMenuItemsStateFromDefaults()
-        // Note: for some reason getting/setting defaults using defaults object
-        // (eg. defaults[.isHotKeyEnabled]) returns runtime error: EXC_BAD_INSTRUCTION
-        if UserDefaults.standard.bool(forKey: "isHotKeyEnabled") {
-            // Bind shortcut to grayscale mode toggle action
-            MASShortcutBinder.shared().bindShortcut(withDefaultsKey: toggleShortcutUserDefaultsKey, toAction: {
-                toggleGrayscale()
-                self.syncEnableGrayscaleModeMenuItemState()
-            })
-        } else {
-            MASShortcutBinder.shared().breakBinding(withDefaultsKey: toggleShortcutUserDefaultsKey)
-        }
-    }
-
-    func updateMenuItemsStateFromDefaults() {
-        let isEnabledAtLaunch = UserDefaults.standard.bool(forKey: "isEnabledAtLaunch")
-        let isEnabledOnLeftClick = UserDefaults.standard.bool(forKey: "isEnabledOnLeftClick")
-        enableAtLaunchMenuItem.state = isEnabledAtLaunch.toNSControlState()
-        enableOnLeftClickMenuItem.state = isEnabledOnLeftClick.toNSControlState()
+        disableGrayscaleMode()
     }
 
     func setDefaultShortcutOnFirstLaunch() {
@@ -97,14 +89,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         launchAtLoginMenuItem.state = LaunchAtLogin.isEnabled.toNSControlState()
     }
 
-    func syncEnableGrayscaleModeMenuItemState() {
-        enableGrayscaleModeMenuItem.state = checkIfGrayscaleOn().toNSControlState()
-    }
-
     @objc func handleMenuIconClick(sender: NSStatusItem) {
         let event = NSApp.currentEvent!
 
-        if !defaults[.isEnabledOnLeftClick] {
+        if !defaults[.shouldEnableOnLeftClick] {
             statusItem.popUpMenu(statusMenu)
             return
         }
@@ -112,14 +100,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if event.type == NSEvent.EventType.leftMouseUp {
             statusItem.popUpMenu(statusMenu)
         } else {
-            toggleGrayscale()
-            syncEnableGrayscaleModeMenuItemState()
+            defaults[.isEnabled].toggle()
         }
     }
 
-    @IBAction func toggleGrayscaleMode(_ sender: NSMenuItem) {
-        toggleGrayscale()
-        syncEnableGrayscaleModeMenuItemState()
+    @IBAction func toggleGrayscaleModeAction(_ sender: NSMenuItem) {
+        defaults[.isEnabled].toggle()
     }
 
     @IBAction func toggleLaunchAtLogin(_ sender: NSMenuItem) {
@@ -130,11 +116,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    @IBAction func toggleEnableAtLaunch(_ sender: NSMenuItem) {
-        defaults[.isEnabledAtLaunch].toggle()
-    }
-
     @IBAction func toggleEnableOnLeftClick(_ sender: NSMenuItem) {
-        defaults[.isEnabledOnLeftClick].toggle()
+        defaults[.shouldEnableOnLeftClick].toggle()
     }
 }
