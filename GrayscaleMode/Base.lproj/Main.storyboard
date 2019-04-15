@@ -157,6 +157,13 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="zkv-q0-6i1"/>
+                                        <menuItem title="Disable for current app" id="2fF-6x-ixq">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="toggleDisableForCurrentApp:" target="Voe-Tx-rLC" id="Tdk-cY-GZ9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="e3j-LK-Fc2"/>
                                         <menuItem title="Preferences..." keyEquivalent="," id="DIO-do-G0a" userLabel="Preferences">
                                             <connections>
                                                 <segue destination="3vK-Gx-CLN" kind="show" id="HSf-sa-cTK"/>
@@ -178,6 +185,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="GrayscaleMode" customModuleProvider="target">
                     <connections>
+                        <outlet property="disableForCurrentAppMenuItem" destination="2fF-6x-ixq" id="Xpm-fc-gni"/>
                         <outlet property="enableAtLaunchMenuItem" destination="5Qm-2a-8UQ" id="e2P-QG-QM4"/>
                         <outlet property="enableGrayscaleModeMenuItem" destination="Zzz-47-AHk" id="UQd-75-vfh"/>
                         <outlet property="enableOnLeftClickMenuItem" destination="RNe-bO-WKw" id="CNw-8a-XpV"/>
