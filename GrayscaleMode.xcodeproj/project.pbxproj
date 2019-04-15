@@ -15,6 +15,9 @@
 		543121B722230E81006B5F8D /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 543121B522230E80006B5F8D /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		543121BB22230F18006B5F8D /* LaunchAtLogin.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */; };
 		543121BC22230F18006B5F8D /* Defaults.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543121BA22230F17006B5F8D /* Defaults.framework.dSYM */; };
+		548F8E30226355DE0067B32E /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548F8E2F226355DE0067B32E /* MASShortcut.framework */; };
+		548F8E32226355ED0067B32E /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 548F8E31226355ED0067B32E /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		548F8E34226355FA0067B32E /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548F8E33226355FA0067B32E /* MASShortcut.framework.dSYM */; };
 		54BBA54222073F19005718DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA54122073F19005718DE /* AppDelegate.swift */; };
 		54BBA54422073F19005718DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BBA54322073F19005718DE /* ViewController.swift */; };
 		54BBA54622073F1A005718DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54BBA54522073F1A005718DE /* Assets.xcassets */; };
@@ -48,6 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				548F8E32226355ED0067B32E /* MASShortcut.framework in Embed Frameworks */,
 				543121B722230E81006B5F8D /* LaunchAtLogin.framework in Embed Frameworks */,
 				543121B322230E70006B5F8D /* Defaults.framework in Embed Frameworks */,
 			);
@@ -60,6 +64,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				548F8E34226355FA0067B32E /* MASShortcut.framework.dSYM in CopyFiles */,
 				543121BB22230F18006B5F8D /* LaunchAtLogin.framework.dSYM in CopyFiles */,
 				543121BC22230F18006B5F8D /* Defaults.framework.dSYM in CopyFiles */,
 			);
@@ -74,6 +79,9 @@
 		543121B522230E80006B5F8D /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = LaunchAtLogin.framework.dSYM; path = Carthage/Build/Mac/LaunchAtLogin.framework.dSYM; sourceTree = "<group>"; };
 		543121BA22230F17006B5F8D /* Defaults.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Defaults.framework.dSYM; path = Carthage/Build/Mac/Defaults.framework.dSYM; sourceTree = "<group>"; };
+		548F8E2F226355DE0067B32E /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
+		548F8E31226355ED0067B32E /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
+		548F8E33226355FA0067B32E /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MASShortcut.framework.dSYM; path = Carthage/Build/Mac/MASShortcut.framework.dSYM; sourceTree = "<group>"; };
 		54BBA53E22073F19005718DE /* GrayscaleMode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrayscaleMode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BBA54122073F19005718DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54BBA54322073F19005718DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548F8E30226355DE0067B32E /* MASShortcut.framework in Frameworks */,
 				543121B622230E80006B5F8D /* LaunchAtLogin.framework in Frameworks */,
 				543121B222230E70006B5F8D /* Defaults.framework in Frameworks */,
 			);
@@ -122,6 +131,7 @@
 		54153658225A0BF900C7421E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				548F8E2F226355DE0067B32E /* MASShortcut.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,6 +139,8 @@
 		54BBA53522073F19005718DE = {
 			isa = PBXGroup;
 			children = (
+				548F8E33226355FA0067B32E /* MASShortcut.framework.dSYM */,
+				548F8E31226355ED0067B32E /* MASShortcut.framework */,
 				543121BA22230F17006B5F8D /* Defaults.framework.dSYM */,
 				543121B922230F17006B5F8D /* LaunchAtLogin.framework.dSYM */,
 				543121B522230E80006B5F8D /* LaunchAtLogin.framework */,
