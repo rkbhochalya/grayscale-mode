@@ -1,9 +1,0 @@
-{
-  "commitish" : "v0.1.1",
-  "Mac" : [
-    {
-      "name" : "HotKey",
-      "hash" : "2e386f14efd7a11364085be245e84313f7d1ff0aff4bd13adb13c69c732e9c61"
-    }
-  ]
-}
