@@ -8,20 +8,20 @@
 
 #include "grayscale.h"
 
-bool checkIfGrayscaleOn(void) {
-    bool isGrayscale = CGDisplayUsesForceToGray();
-    return isGrayscale;
+bool isGrayscaleModeEnabled(void) {
+    bool isEnabled = CGDisplayUsesForceToGray();
+    return isEnabled;
 }
 
-void enableGrayscale(void) {
+void enableGrayscaleMode(void) {
     CGDisplayForceToGray(true);
 }
 
-void disableGrayscale(void) {
+void disableGrayscaleMode(void) {
     CGDisplayForceToGray(false);
 }
 
-void toggleGrayscale(void) {
-    bool isGrayscale = CGDisplayUsesForceToGray();
-    CGDisplayForceToGray(!isGrayscale);
+void toggleGrayscaleMode(void) {
+    bool isEnabled = CGDisplayUsesForceToGray();
+    CGDisplayForceToGray(!isEnabled);
 }

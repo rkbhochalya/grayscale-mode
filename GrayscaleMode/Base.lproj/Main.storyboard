@@ -30,11 +30,11 @@
             <objects>
                 <viewController id="HyQ-cD-WDv" customClass="PreferencesViewController" customModule="GrayscaleMode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wNo-V8-Scz">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="167"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="140"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-bH-R9a">
-                                <rect key="frame" x="40" y="121" width="129" height="18"/>
+                                <rect key="frame" x="40" y="94" width="129" height="18"/>
                                 <buttonCell key="cell" type="check" title="Launch at startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XhX-6e-5gq">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -43,18 +43,8 @@
                                     <action selector="launchAtLoginDidChange:" target="HyQ-cD-WDv" id="qZi-cl-aj8"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TRt-NT-BsV">
-                                <rect key="frame" x="40" y="101" width="122" height="18"/>
-                                <buttonCell key="cell" type="check" title="Enable at launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HCp-Gh-Pw2">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="enableAtLaunchDidChange:" target="HyQ-cD-WDv" id="eqQ-6K-e4G"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hnl-TN-Vnp">
-                                <rect key="frame" x="40" y="81" width="139" height="18"/>
+                                <rect key="frame" x="40" y="74" width="139" height="18"/>
                                 <buttonCell key="cell" type="check" title="Enable on left-click" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5U1-EV-l13">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -64,7 +54,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HbW-IN-rfG">
-                                <rect key="frame" x="40" y="61" width="160" height="18"/>
+                                <rect key="frame" x="40" y="54" width="160" height="18"/>
                                 <buttonCell key="cell" type="check" title="Enable toggle shortcut" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jSQ-nM-c7k">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -74,7 +64,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-2l-g4d">
-                                <rect key="frame" x="59" y="40" width="57" height="17"/>
+                                <rect key="frame" x="59" y="33" width="57" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Shortcut" id="MEB-cJ-app">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -82,7 +72,7 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ngP-km-LN4" customClass="MASShortcutView">
-                                <rect key="frame" x="120" y="38" width="160" height="19"/>
+                                <rect key="frame" x="120" y="31" width="160" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="R68-qI-D90"/>
                                     <constraint firstAttribute="width" constant="160" id="qKC-A1-G75"/>
@@ -92,12 +82,10 @@
                         <constraints>
                             <constraint firstItem="hnl-TN-Vnp" firstAttribute="leading" secondItem="wNo-V8-Scz" secondAttribute="leading" constant="42" id="30e-Ld-056"/>
                             <constraint firstItem="KR3-2l-g4d" firstAttribute="leading" secondItem="wNo-V8-Scz" secondAttribute="leading" constant="61" id="32U-Ny-msR"/>
-                            <constraint firstItem="hnl-TN-Vnp" firstAttribute="top" secondItem="TRt-NT-BsV" secondAttribute="bottom" constant="6" id="4RO-XS-tQO"/>
-                            <constraint firstItem="TRt-NT-BsV" firstAttribute="top" secondItem="dIw-bH-R9a" secondAttribute="bottom" constant="6" id="A7R-Xm-dQQ"/>
+                            <constraint firstItem="hnl-TN-Vnp" firstAttribute="top" secondItem="dIw-bH-R9a" secondAttribute="bottom" constant="6" id="Mcn-fL-g4c"/>
                             <constraint firstItem="dIw-bH-R9a" firstAttribute="leading" secondItem="wNo-V8-Scz" secondAttribute="leading" constant="42" id="SU0-Vb-Lvj"/>
                             <constraint firstItem="HbW-IN-rfG" firstAttribute="top" secondItem="hnl-TN-Vnp" secondAttribute="bottom" constant="6" id="Sga-L0-CXL"/>
                             <constraint firstItem="KR3-2l-g4d" firstAttribute="top" secondItem="HbW-IN-rfG" secondAttribute="bottom" constant="6" id="T8N-Mh-hac"/>
-                            <constraint firstItem="TRt-NT-BsV" firstAttribute="leading" secondItem="wNo-V8-Scz" secondAttribute="leading" constant="42" id="eDf-26-Jd8"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hnl-TN-Vnp" secondAttribute="trailing" constant="303" id="gd8-BS-Beg"/>
                             <constraint firstItem="dIw-bH-R9a" firstAttribute="top" secondItem="wNo-V8-Scz" secondAttribute="top" constant="30" id="hAQ-n9-0uP"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="HbW-IN-rfG" secondAttribute="trailing" constant="282" id="hc0-8W-cdh"/>
@@ -105,12 +93,10 @@
                             <constraint firstItem="HbW-IN-rfG" firstAttribute="leading" secondItem="wNo-V8-Scz" secondAttribute="leading" constant="42" id="mUo-KA-xYj"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dIw-bH-R9a" secondAttribute="trailing" constant="313" id="sAn-t6-ufX"/>
                             <constraint firstItem="ngP-km-LN4" firstAttribute="top" secondItem="HbW-IN-rfG" secondAttribute="bottom" constant="6" id="tjY-74-9zl"/>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="TRt-NT-BsV" secondAttribute="trailing" constant="320" id="z6G-2U-Hqc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="LaunchAtLoginCheckbox" destination="XhX-6e-5gq" id="23W-pv-hyk"/>
-                        <outlet property="enableAtLaunchCheckbox" destination="HCp-Gh-Pw2" id="EuX-E1-hjA"/>
                         <outlet property="enableHotKeyCheckbox" destination="HbW-IN-rfG" id="5Oh-Jz-dlA"/>
                         <outlet property="enableOnLeftClickCheckbox" destination="5U1-EV-l13" id="pQH-hc-cp5"/>
                         <outlet property="launchAtLoginCheckbox" destination="dIw-bH-R9a" id="jow-S1-JQo"/>
@@ -119,7 +105,7 @@
                 </viewController>
                 <customObject id="nXm-2M-kah" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="234"/>
+            <point key="canvasLocation" x="566" y="214.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -134,7 +120,7 @@
                                         <menuItem title="Enable Grayscale Mode" id="Zzz-47-AHk">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="toggleGrayscaleMode:" target="Voe-Tx-rLC" id="7Zt-sF-gD6"/>
+                                                <action selector="toggleGrayscaleModeAction:" target="Voe-Tx-rLC" id="7Zt-sF-gD6"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
@@ -142,12 +128,6 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="toggleLaunchAtLogin:" target="Voe-Tx-rLC" id="Kwo-fz-Tu2"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Enable at launch" id="5Qm-2a-8UQ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="toggleEnableAtLaunch:" target="Voe-Tx-rLC" id="jcg-mA-nV6"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enable on left-click" id="RNe-bO-WKw">
@@ -186,7 +166,6 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="GrayscaleMode" customModuleProvider="target">
                     <connections>
                         <outlet property="disableForCurrentAppMenuItem" destination="2fF-6x-ixq" id="Xpm-fc-gni"/>
-                        <outlet property="enableAtLaunchMenuItem" destination="5Qm-2a-8UQ" id="e2P-QG-QM4"/>
                         <outlet property="enableGrayscaleModeMenuItem" destination="Zzz-47-AHk" id="UQd-75-vfh"/>
                         <outlet property="enableOnLeftClickMenuItem" destination="RNe-bO-WKw" id="CNw-8a-XpV"/>
                         <outlet property="launchAtLoginMenuItem" destination="QeW-s5-gce" id="g6o-SW-m59"/>
