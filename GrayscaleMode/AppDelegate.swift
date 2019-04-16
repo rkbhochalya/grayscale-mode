@@ -14,6 +14,7 @@ extension Defaults.Keys {
     static let isEnabled = Defaults.Key<Bool>("isEnabled", default: false)
     static let shouldEnableOnLeftClick = Defaults.Key<Bool>("shouldEnableOnLeftClick", default: false)
     static let isHotKeyEnabled = Defaults.Key<Bool>("isHotKeyEnabled", default: true)
+    static let whitelistedApps = Defaults.Key<[String]>("whitelistedApps", default: [])
 }
 
 @NSApplicationMain
@@ -23,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var enableGrayscaleModeMenuItem: NSMenuItem!
     @IBOutlet weak var launchAtLoginMenuItem: NSMenuItem!
     @IBOutlet weak var enableOnLeftClickMenuItem: NSMenuItem!
+    @IBOutlet weak var disableForCurrentAppMenuItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let toggleShortcutUserDefaultsKey = "toggleShortcutKey"
@@ -43,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         isEnabledObserver = defaults.observe(.isEnabled, options: [.initial, .old, .new]) { change in
             if change.newValue {
-                enableGrayscaleMode()
+                self.maybeEnableGrayscaleMode()
             } else {
                 disableGrayscaleMode()
             }
@@ -66,12 +68,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
 
+        NSWorkspace.shared.notificationCenter.addObserver(self,
+                                               selector: #selector(self.frontmostAppChanged),
+                                               name: NSWorkspace.didActivateApplicationNotification,
+                                               object: nil)
+
         setDefaultShortcutOnFirstLaunch()
         syncLaunchAtLoginMenuItemState()
+        updateDisableForCurrentAppMenuItemTitleAndState()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         disableGrayscaleMode()
+    }
+
+    @objc func frontmostAppChanged() {
+        updateDisableForCurrentAppMenuItemTitleAndState()
+        toggleGrayscaleModeBasedOnFrontmostApp()
+    }
+
+    // Enable grayscale mode only if frontmost app is not whitelisted
+    func maybeEnableGrayscaleMode() {
+        guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
+            return
+        }
+        if defaults[.whitelistedApps].contains(currentAppId) {
+            return
+        }
+        enableGrayscaleMode()
     }
 
     func setDefaultShortcutOnFirstLaunch() {
@@ -87,6 +111,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func syncLaunchAtLoginMenuItemState() {
         launchAtLoginMenuItem.state = LaunchAtLogin.isEnabled.toNSControlState()
+    }
+
+    func updateDisableForCurrentAppMenuItemTitleAndState() {
+        guard let currentAppName = NSWorkspace.shared.frontmostApplication?.localizedName else {
+            return
+        }
+        guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
+            return
+        }
+        guard let menuItem = disableForCurrentAppMenuItem else {
+            return
+        }
+        menuItem.title = "Disable for \(currentAppName)"
+        menuItem.state = defaults[.whitelistedApps].contains(currentAppId).toNSControlState()
+    }
+
+    func toggleGrayscaleModeBasedOnFrontmostApp() {
+        guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
+            return
+        }
+        if defaults[.whitelistedApps].contains(currentAppId) {
+            if isGrayscaleModeEnabled() {
+                disableGrayscaleMode()
+            }
+        } else if defaults[.isEnabled] && !isGrayscaleModeEnabled() {
+            enableGrayscaleMode()
+        }
     }
 
     @objc func handleMenuIconClick(sender: NSStatusItem) {
@@ -118,5 +169,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func toggleEnableOnLeftClick(_ sender: NSMenuItem) {
         defaults[.shouldEnableOnLeftClick].toggle()
+    }
+
+    @IBAction func toggleDisableForCurrentApp(_ sender: NSMenuItem) {
+        guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
+            return
+        }
+        if defaults[.whitelistedApps].contains(currentAppId) {
+            defaults[.whitelistedApps] = defaults[.whitelistedApps].filter {$0 != currentAppId}
+        } else {
+            defaults[.whitelistedApps].append(currentAppId)
+        }
+        updateDisableForCurrentAppMenuItemTitleAndState()
+        toggleGrayscaleModeBasedOnFrontmostApp()
     }
 }
