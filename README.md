@@ -4,14 +4,19 @@
   <p>An open source macOS menu bar app that gives you more control over Grayscale Mode.</p>
 </div>
 
-## Screenshots
-![](screenshot-1.jpg)
-![](screenshot-2.jpg)
+
+<br>
+<br>
+<br>
 
 ## Features
 - Quickly toggle grayscale mode from status bar on any screen
 - Configurable shortcut (⌥⌘G)
 - Option to disable Grayscale Mode for selected apps
+
+## Screenshots
+![](screenshot-1.jpg)
+![](screenshot-2.jpg)
 
 ## Download
 Get it on Mac App Store for $0.99 and support the development
