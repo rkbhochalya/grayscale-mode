@@ -4,7 +4,6 @@
   <p>An open source macOS menu bar app that gives you more control over Grayscale Mode.</p>
 </div>
 
-
 <br>
 <br>
 <br>
@@ -33,5 +32,7 @@ Or [download it for free from Github](https://github.com/rkbhochalya/grayscale-m
 ## Contributing
 Pull requests are welcome.
 
-## License
-This app is licensed under [MIT](LICENSE).
+## Copyright & License
+Copyright (c) 2019 Rajendra Kumar Bhochalya. All rights reserved.\
+\
+The code in this repository is licensed under [MIT](LICENSE). Images and other assets are explicitly excluded. You have no license to use, modify or distribute the images and other assets in this repository.
