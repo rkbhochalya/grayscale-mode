@@ -18,11 +18,7 @@
 ![](screenshot-2.jpg)
 
 ## Download
-Get it on Mac App Store for $0.99 and support the development (comming soon)
-
-![Mac app store download badge](mac-app-store-download-badge.svg)
-
-Or [download it for free from Github](https://github.com/rkbhochalya/grayscale-mode/releases).
+[Download latest version](https://github.com/rkbhochalya/grayscale-mode/releases).
 
 ## Dependencies
 - [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin/) - Add "Launch at Login" functionality to your macOS app in seconds.
