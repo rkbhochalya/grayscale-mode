@@ -28,11 +28,11 @@ class PreferencesViewController: NSViewController {
         appDelegate.prefViewController = self
         toggleShortcutView.associatedUserDefaultsKey = appDelegate.toggleShortcutUserDefaultsKey
 
-        shouldEnableOnLeftClickObserver = defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
+        shouldEnableOnLeftClickObserver = Defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
             self.enableOnLeftClickCheckbox.state = change.newValue.toNSControlState()
         }
 
-        isHotKeyEnabledObserver = defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
+        isHotKeyEnabledObserver = Defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
           self.enableHotKeyCheckbox.state = change.newValue.toNSControlState()
           self.toggleShortcutView.isEnabled = change.newValue
         }
@@ -55,11 +55,11 @@ class PreferencesViewController: NSViewController {
     }
 
     @IBAction func enableOnLeftClickDidChange(_ sender: NSButton) {
-        defaults[.shouldEnableOnLeftClick].toggle()
+        Defaults[.shouldEnableOnLeftClick].toggle()
     }
 
     @IBAction func enableHotKeyDidChange(_ sender: NSButton) {
-        defaults[.isHotKeyEnabled].toggle()
+        Defaults[.isHotKeyEnabled].toggle()
     }
 
 }

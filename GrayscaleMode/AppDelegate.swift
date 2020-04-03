@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
-        isEnabledObserver = defaults.observe(.isEnabled, options: [.initial, .old, .new]) { change in
+        isEnabledObserver = Defaults.observe(.isEnabled, options: [.initial, .old, .new]) { change in
             if change.newValue {
                 self.maybeEnableGrayscaleMode()
             } else {
@@ -52,15 +52,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.enableGrayscaleModeMenuItem.state = change.newValue.toNSControlState()
         }
 
-        shouldEnableOnLeftClickObserver = defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
+        shouldEnableOnLeftClickObserver = Defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
             self.enableOnLeftClickMenuItem.state = change.newValue.toNSControlState()
         }
 
-        isHotKeyEnabledObserver = defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
+        isHotKeyEnabledObserver = Defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
             if change.newValue {
                 // Bind shortcut to grayscale mode toggle action
                 MASShortcutBinder.shared().bindShortcut(withDefaultsKey: self.toggleShortcutUserDefaultsKey, toAction: {
-                    defaults[.isEnabled].toggle()
+                    Defaults[.isEnabled].toggle()
                 })
             } else {
                 // Remove shortcut callback binding
@@ -92,15 +92,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
             return
         }
-        if defaults[.whitelistedApps].contains(currentAppId) {
+        if Defaults[.whitelistedApps].contains(currentAppId) {
             return
         }
         enableGrayscaleMode()
     }
 
     func setDefaultShortcutOnFirstLaunch() {
-        let modifierFlags = NSEvent.ModifierFlags.init(arrayLiteral: [.option, .command]).rawValue
-        guard let defaultShortcut = MASShortcut(keyCode: UInt(kVK_ANSI_G),
+        let modifierFlags = NSEvent.ModifierFlags.init(arrayLiteral: [.option, .command])
+        guard let defaultShortcut = MASShortcut(keyCode: kVK_ANSI_G,
                                                 modifierFlags: modifierFlags) else { return }
         guard let defaultShortcutData = try? NSKeyedArchiver
             .archivedData(withRootObject: defaultShortcut, requiringSecureCoding: false) else {
@@ -124,18 +124,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         menuItem.title = "Disable when \(currentAppName) is active"
-        menuItem.state = defaults[.whitelistedApps].contains(currentAppId).toNSControlState()
+        menuItem.state = Defaults[.whitelistedApps].contains(currentAppId).toNSControlState()
     }
 
     func toggleGrayscaleModeBasedOnFrontmostApp() {
         guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
             return
         }
-        if defaults[.whitelistedApps].contains(currentAppId) {
+        if Defaults[.whitelistedApps].contains(currentAppId) {
             if isGrayscaleModeEnabled() {
                 disableGrayscaleMode()
             }
-        } else if defaults[.isEnabled] && !isGrayscaleModeEnabled() {
+        } else if Defaults[.isEnabled] && !isGrayscaleModeEnabled() {
             enableGrayscaleMode()
         }
     }
@@ -143,7 +143,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func handleMenuIconClick(sender: NSStatusItem) {
         let event = NSApp.currentEvent!
 
-        if !defaults[.shouldEnableOnLeftClick] {
+        if !Defaults[.shouldEnableOnLeftClick] {
             statusItem.popUpMenu(statusMenu)
             return
         }
@@ -151,12 +151,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if event.type == NSEvent.EventType.leftMouseUp {
             statusItem.popUpMenu(statusMenu)
         } else {
-            defaults[.isEnabled].toggle()
+            Defaults[.isEnabled].toggle()
         }
     }
 
     @IBAction func toggleGrayscaleModeAction(_ sender: NSMenuItem) {
-        defaults[.isEnabled].toggle()
+        Defaults[.isEnabled].toggle()
     }
 
     @IBAction func toggleLaunchAtLogin(_ sender: NSMenuItem) {
@@ -168,17 +168,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func toggleEnableOnLeftClick(_ sender: NSMenuItem) {
-        defaults[.shouldEnableOnLeftClick].toggle()
+        Defaults[.shouldEnableOnLeftClick].toggle()
     }
 
     @IBAction func toggleDisableForCurrentApp(_ sender: NSMenuItem) {
         guard let currentAppId = NSWorkspace.shared.frontmostApplication?.bundleIdentifier else {
             return
         }
-        if defaults[.whitelistedApps].contains(currentAppId) {
-            defaults[.whitelistedApps] = defaults[.whitelistedApps].filter {$0 != currentAppId}
+        if Defaults[.whitelistedApps].contains(currentAppId) {
+            Defaults[.whitelistedApps] = Defaults[.whitelistedApps].filter {$0 != currentAppId}
         } else {
-            defaults[.whitelistedApps].append(currentAppId)
+            Defaults[.whitelistedApps].append(currentAppId)
         }
         updateDisableForCurrentAppMenuItemTitleAndState()
         toggleGrayscaleModeBasedOnFrontmostApp()

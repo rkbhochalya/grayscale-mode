@@ -1,9 +1,10 @@
 {
-  "commitish" : "v2.0.0",
+  "commitish" : "v3.1.1",
   "Mac" : [
     {
       "name" : "Defaults",
-      "hash" : "3ee736abe82a0051c6581c74d775f7f9fe4ef3652951339f2e9627e4d7ef039c"
+      "hash" : "8ae04e5bb638c45dea41b4fb17c117a88d4dd721b2e539af82c515c73268a463",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     }
   ]
 }

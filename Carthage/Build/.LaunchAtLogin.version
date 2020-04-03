@@ -1,9 +1,10 @@
 {
-  "commitish" : "v2.5.0",
+  "commitish" : "v3.0.0",
   "Mac" : [
     {
       "name" : "LaunchAtLogin",
-      "hash" : "bbd54534cc4226d77e49e299fe67345167c09692c528f4a587e7a5db285a47df"
+      "hash" : "71efcbbbe9b72fef9f0e94d9f309c4d274488285be4d229cbab2239e9b1df8bc",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     }
   ]
 }

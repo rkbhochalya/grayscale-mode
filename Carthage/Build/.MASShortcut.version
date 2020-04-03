@@ -1,9 +1,9 @@
 {
-  "commitish" : "2.3.6",
+  "commitish" : "2.4.0",
   "Mac" : [
     {
       "name" : "MASShortcut",
-      "hash" : "6975bc07e1acae3cec45bd29d7561c1fed5c950cd0b11de925cdb23fdefba919"
+      "hash" : "aeeb4d6ba9a05c0f9d9d42f2155298e9630fe2fe3232f3e6b0f4e9ac2b6158fb"
     }
   ]
 }
