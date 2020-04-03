@@ -123,7 +123,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let menuItem = disableForCurrentAppMenuItem else {
             return
         }
-        menuItem.title = "Disable for \(currentAppName)"
+        menuItem.title = "Disable when \(currentAppName) is active"
         menuItem.state = defaults[.whitelistedApps].contains(currentAppId).toNSControlState()
     }
 
