@@ -14,12 +14,12 @@ import MASShortcut
 class PreferencesViewController: NSViewController {
 
     @IBOutlet weak var launchAtLoginCheckbox: NSButtonCell!
-    @IBOutlet weak var enableOnLeftClickCheckbox: NSButtonCell!
+    @IBOutlet weak var enableOnRightClickCheckbox: NSButtonCell!
     @IBOutlet weak var enableHotKeyCheckbox: NSButtonCell!
     @IBOutlet weak var toggleShortcutView: MASShortcutView!
 
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
-    var shouldEnableOnLeftClickObserver: DefaultsObservation!
+    var shouldEnableOnRightClickObserver: DefaultsObservation!
     var isHotKeyEnabledObserver: DefaultsObservation!
 
     override func viewDidLoad() {
@@ -28,8 +28,8 @@ class PreferencesViewController: NSViewController {
         appDelegate.prefViewController = self
         toggleShortcutView.associatedUserDefaultsKey = appDelegate.toggleShortcutUserDefaultsKey
 
-        shouldEnableOnLeftClickObserver = Defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
-            self.enableOnLeftClickCheckbox.state = change.newValue.toNSControlState()
+        shouldEnableOnRightClickObserver = Defaults.observe(.shouldEnableOnRightClick, options: [.initial, .old, .new]) { change in
+            self.enableOnRightClickCheckbox.state = change.newValue.toNSControlState()
         }
 
         isHotKeyEnabledObserver = Defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
@@ -54,8 +54,8 @@ class PreferencesViewController: NSViewController {
         appDelegate.syncLaunchAtLoginMenuItemState()
     }
 
-    @IBAction func enableOnLeftClickDidChange(_ sender: NSButton) {
-        Defaults[.shouldEnableOnLeftClick].toggle()
+    @IBAction func enableOnRightClickDidChange(_ sender: NSButton) {
+        Defaults[.shouldEnableOnRightClick].toggle()
     }
 
     @IBAction func enableHotKeyDidChange(_ sender: NSButton) {

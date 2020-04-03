@@ -12,7 +12,7 @@ import Defaults
 
 extension Defaults.Keys {
     static let isEnabled = Defaults.Key<Bool>("isEnabled", default: false)
-    static let shouldEnableOnLeftClick = Defaults.Key<Bool>("shouldEnableOnLeftClick", default: false)
+    static let shouldEnableOnRightClick = Defaults.Key<Bool>("shouldEnableOnRightClick", default: false)
     static let isHotKeyEnabled = Defaults.Key<Bool>("isHotKeyEnabled", default: true)
     static let whitelistedApps = Defaults.Key<[String]>("whitelistedApps", default: [])
 }
@@ -23,14 +23,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var enableGrayscaleModeMenuItem: NSMenuItem!
     @IBOutlet weak var launchAtLoginMenuItem: NSMenuItem!
-    @IBOutlet weak var enableOnLeftClickMenuItem: NSMenuItem!
+    @IBOutlet weak var enableOnRightClickMenuItem: NSMenuItem!
     @IBOutlet weak var disableForCurrentAppMenuItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let toggleShortcutUserDefaultsKey = "toggleShortcutKey"
     var prefViewController: PreferencesViewController!
     var isEnabledObserver: DefaultsObservation!
-    var shouldEnableOnLeftClickObserver: DefaultsObservation!
+    var shouldEnableOnRightClickObserver: DefaultsObservation!
     var isHotKeyEnabledObserver: DefaultsObservation!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -52,8 +52,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.enableGrayscaleModeMenuItem.state = change.newValue.toNSControlState()
         }
 
-        shouldEnableOnLeftClickObserver = Defaults.observe(.shouldEnableOnLeftClick, options: [.initial, .old, .new]) { change in
-            self.enableOnLeftClickMenuItem.state = change.newValue.toNSControlState()
+        shouldEnableOnRightClickObserver = Defaults.observe(.shouldEnableOnRightClick, options: [.initial, .old, .new]) { change in
+            self.enableOnRightClickMenuItem.state = change.newValue.toNSControlState()
         }
 
         isHotKeyEnabledObserver = Defaults.observe(.isHotKeyEnabled, options: [.initial, .old, .new]) { change in
@@ -143,7 +143,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func handleMenuIconClick(sender: NSStatusItem) {
         let event = NSApp.currentEvent!
 
-        if !Defaults[.shouldEnableOnLeftClick] {
+        if !Defaults[.shouldEnableOnRightClick] {
             statusItem.popUpMenu(statusMenu)
             return
         }
@@ -167,8 +167,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    @IBAction func toggleEnableOnLeftClick(_ sender: NSMenuItem) {
-        Defaults[.shouldEnableOnLeftClick].toggle()
+    @IBAction func toggleEnableOnRightClick(_ sender: NSMenuItem) {
+        Defaults[.shouldEnableOnRightClick].toggle()
     }
 
     @IBAction func toggleDisableForCurrentApp(_ sender: NSMenuItem) {
