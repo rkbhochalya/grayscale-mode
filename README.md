@@ -14,8 +14,8 @@
 - Option to disable Grayscale Mode for selected apps.
 
 ## Screenshots
-![](screenshot-1.jpg)
-![](screenshot-2.jpg)
+<img src="screenshot-1.jpg" width="720" height="450">
+<img src="screenshot-2.jpg" width="720" height="450">
 
 ## Download
 [Download latest version](https://github.com/rkbhochalya/grayscale-mode/releases).
