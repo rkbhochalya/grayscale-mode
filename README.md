@@ -29,6 +29,6 @@
 Pull requests are welcome.
 
 ## Copyright & License
-Copyright (c) 2019 Rajendra Kumar Bhochalya. All rights reserved.\
+Copyright (c) 2019-2020 Rajendra Kumar Bhochalya. All rights reserved.\
 \
 The code in this repository is licensed under [MIT](LICENSE). Images and other assets are explicitly excluded. You have no license to use, modify or distribute the images and other assets in this repository.
