@@ -2,7 +2,9 @@
   <img src="GrayscaleMode/Assets.xcassets/AppIcon.appiconset/Logo Circles_512pt@1x.png" alt="Grayscale Mode logo" width="250">
   <h1>Grayscale Mode</h1>
   <p>An open source macOS menu bar app that gives you more control over Grayscale Mode.</p>
-  <img src="https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true" alt="Awesome Humane Tech" style="max-width:100%;">
+  <a href="https://github.com/humanetech-community/awesome-humane-tech">
+    <img src="https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true" alt="Awesome Humane Tech" style="max-width:100%;">
+  </a>
 </div>
 
 <br>
